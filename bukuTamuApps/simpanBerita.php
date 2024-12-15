@@ -1,18 +1,18 @@
-<?php 
-    include "koneksi.php";
-    $judul = $_POST['judul'];
-    $isi   = $_POST['isi'];
+<?php
+include "koneksi.php";
+$judul = $_POST['judul'];
+$isi = $_POST['isi'];
 
-    $vfoto = $_FILES['fupload']['name'];
-    $tfoto = $_FILES['fupload'] ['tmp_name'];
-    $dir   = "foto_berita/";
+$vfoto = $_FILES['fupload']['name'];
+$tfoto = $_FILES['fupload']['tmp_name'];
+$dir = "foto_berita/";
 
-    $penulis = $_POST['penulis'];
-    $simpan  = mysqli_query($koneksi,"INSERT into tb_berita(judul,isiBerita,gambar,penulis) values ('$judul','$isi','$vfoto','$penulis')");
+$penulis = $_POST['penulis'];
+$simpan = mysqli_query($koneksi, "INSERT into tb_berita(judul,isiBerita,gambar,penulis) values ('$judul','$isi','$vfoto','$penulis')");
 
-    $upload=$dir.$vfoto;
-    move_uploaded_file($tfoto, $upload);
+$upload = $dir . $vfoto;
+move_uploaded_file($tfoto, $upload);
 ?>
 <script>
-    document.location ='tampil_berita.php'
+    document.location = 'tampil_berita.php'
 </script>
