@@ -12,7 +12,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 </head>
-<body">
+<body>
   <div class="container">
     <h1 class="display-5 text-center">Form Tambah Berita</h1>
     <form action="simpanBerita.php" method="post" enctype="multipart/form-data">

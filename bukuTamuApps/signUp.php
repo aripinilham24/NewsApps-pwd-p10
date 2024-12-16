@@ -16,10 +16,11 @@
 <body>
     <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
         <h1 class="text-center">Sign Up</h1>
-        <form>
+        <form method="post" action="simpanAkun.php" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="inputEmail" class="form-label">Email address</label>
-                <input type="email" class="form-control" name="inputEmail" id="inputEmail" aria-describedby="emailHelp" required>
+                <input type="email" class="form-control" name="inputEmail" id="inputEmail" aria-describedby="emailHelp"
+                    required>
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
@@ -27,7 +28,7 @@
                 <input type="text" class="form-control" name="userName" id="userName" required>
             </div>
             <div class="mb-3">
-            <label for="peran" class="form-label">Pilih Peran</label>
+                <label for="peran" class="form-label">Pilih Peran</label>
                 <select class="form-select" aria-label="Default select example" name="peran" id="peran" required>
                     <option selected disabled>Pilih Peran</option>
                     <option value="penulis">Penulis</option>
