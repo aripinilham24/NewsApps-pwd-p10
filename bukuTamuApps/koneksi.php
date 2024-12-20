@@ -1,3 +1,5 @@
 <?php
-$koneksi = mysqli_connect("localhost", "root", "", "db_berita");
+$conn = new mysqli('localhost', 'root', '', 'db_berita');
+if ($conn->connect_error)
+    die('koneksi gagal:' . $conn->connect_error);
 ?>

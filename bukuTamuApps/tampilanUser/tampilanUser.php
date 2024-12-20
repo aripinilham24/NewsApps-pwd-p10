@@ -14,35 +14,36 @@
 </head>
 
 <body>
+    <?php
+    include "../koneksi.php";
+    session_start();
+    $sql = mysqli_query($conn, "SELECT * FROM tb_berita order by nomor asc");
+    ?>
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">User(pembaca)</a>
+            <a class="navbar-brand" href="#"><?php echo "{$_SESSION['username']} ({$_SESSION['peran']})"; ?></a>
             <a href="" class="text-decoration-none text-dark">Log Out <img width="20" height="20"
                     src="https://img.icons8.com/ios/50/exit.png" alt="exit" /></a>
         </div>
     </nav>
-
-    <?php
-    include "koneksi.php";
-    $sql = mysqli_query($koneksi, "SELECT * FROM tb_berita order by nomor asc");
-    ?>
-
     <div class="container">
         <h1 class="display-5">DAFTAR BERITA</h1>
         <p>Berikut ini adalah daftar berita yang paling populer.</p>
         <hr>
 
         <?php
-        $i=1;
-        while ($data=mysqli_fetch_array($sql)) {
-        ?>
-        <h5>Penulis: <?php echo $data['penulis']?></h5>
-        <h1><?php echo $data['judul']?></h1>
-        <div><?php echo "<img src='foto_berita/$data[gambar]' width=100 height=100"?></div>
-        <p><?php echo $data['isiBerita']?></p>
-        <button class="btn btn-outline-secondary"><img class="me-2" width="15" height="15" src="https://img.icons8.com/pastel-glyph/128/comments.png" alt="comments"/>Komentar</button>
-        <hr> 
-        <?php $i++;}?>
+        $i = 1;
+        while ($data = mysqli_fetch_array($sql)) {
+            ?>
+            <h5>Penulis: <?php echo $data['penulis'] ?></h5>
+            <h1><?php echo $data['judul'] ?></h1>
+            <div><?php echo "<img src='../foto_berita/$data[gambar]' width=100 height=100" ?></div>
+            <p><?php echo $data['isiBerita'] ?></p>
+            <button class="btn btn-outline-secondary"><img class="me-2" width="15" height="15"
+                    src="https://img.icons8.com/pastel-glyph/128/comments.png" alt="comments" />Komentar</button>
+            <hr>
+            <?php $i++;
+        } ?>
     </div>
 </body>
 

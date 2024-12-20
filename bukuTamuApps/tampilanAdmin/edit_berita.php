@@ -15,7 +15,7 @@
 
 <body>
     <div class="container">
-        <h1 class="display-5 text-center">Form Tambah Berita</h1>
+        <h1 class="display-5 text-center">Form Edit Berita</h1>
         <form action="simpanEditBerita.php" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="judul" class="form-label">Judul Berita</label>

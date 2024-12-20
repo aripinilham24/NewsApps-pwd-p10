@@ -12,8 +12,9 @@
 
 <body>
     <?php
-    include "koneksi.php";
-    $sql = mysqli_query($koneksi, "SELECT * FROM tb_berita order by nomor asc");
+    include "header.php";
+    include "../koneksi.php";
+    $sql = mysqli_query($conn, "SELECT * FROM tb_berita order by nomor asc");
     ?>
 
     <div class="container">
@@ -44,7 +45,7 @@
                             <td><?php echo $i ?></td>
                             <td><?php echo $data['judul'] ?></td>
                             <td><?php echo $data['isiBerita'] ?></td>
-                            <td><?php echo "<img src='foto_berita/$data[gambar]' width=100 height=100" ?></td>
+                            <td><?php echo "<img src='../foto_berita/$data[gambar]' width=100 height=100" ?></td>
                             <td><?php echo $data['penulis'] ?></td>
 
                             <td width="20%">

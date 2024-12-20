@@ -1,3 +1,14 @@
+<?php
+include "koneksi.php";
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['inputEmail'];
+    $username = $_POST['userName'];
+    $peran = $_POST['peran'];
+    $password = $_POST['inputPassword'];
+    $simpan = mysqli_query($conn, "INSERT into tb_pengguna(nama_pengguna, email, kata_sandi, peran) values ('$username', '$email', '$password', '$peran')");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +27,7 @@
 <body>
     <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
         <h1 class="text-center">Sign Up</h1>
-        <form method="post" action="simpanAkun.php" enctype="multipart/form-data">
+        <form method="post" action="" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="inputEmail" class="form-label">Email address</label>
                 <input type="email" class="form-control" name="inputEmail" id="inputEmail" aria-describedby="emailHelp"
@@ -46,5 +57,4 @@
         </form>
     </div>
 </body>
-
 </html>
