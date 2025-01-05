@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,10 +11,23 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <?php
+    include "../koneksi.php";
+    $username = "select nama_pengguna from tb_pengguna where id_pengguna = 1";
+    $result = $conn->query($username);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $username = $row['nama_pengguna'];
+    } else {
+        $username = "Tidak ditemukan";
+    }
+    ?>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Penulis</a>
+            <a class="navbar-brand" href="#"><?php echo $username;?>(Penulis)</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,4 +42,5 @@
         </div>
     </nav>
 </body>
+
 </html>
